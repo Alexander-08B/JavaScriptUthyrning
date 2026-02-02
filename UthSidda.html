@@ -1,0 +1,21 @@
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaceHolder</title>
+</head>
+
+<body>
+
+    <h2 id="välkommen"></h2>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const text = document.getElementById('välkommen');
+        let användarnamn = params.get('användarnamn');
+        text.textContent = `Välkommen ${användarnamn}!`;
+         
+    </script>
+
+</body>
+</html>

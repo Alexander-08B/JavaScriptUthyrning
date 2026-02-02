@@ -1,0 +1,41 @@
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaceHolder</title>
+</head>
+
+<body>
+    <h1>Inloggnings sidda</h1><br>
+
+    <form id = "inloggForm">
+        <label for = "användarnamn">Ange ditt användarnamn:</label>
+        <input type ="text" id= "användarnamn" name= "användarnamn"><br>
+        
+        <label for = "lösenord">Ange ditt lösenord:</label>
+        <input type = "lösenord" id= "lösenord" name= "lösenord"><br>
+        
+        <input type = "submit" value= "Logga in">
+    </form>
+
+    <script>
+        let användarnamn = null;
+        const form = document.getElementById('inloggForm');
+
+        form.addEventListener('submit', function (event){
+            event.preventDefault(); 
+            const text = document.getElementById('användarnamn').value;
+            const lösenord = document.getElementById('lösenord').value;
+            
+            if(text == "ab" && lösenord == "lö"){
+                användarnamn = text;
+                window.location.href = `UthSidda.html?username=${encodeURIComponent(användarnamn)}`;
+            }
+            else{
+                alert("Fel användarnamn eller lösenord!");
+            }
+        });
+    </script>
+
+</body>
+</html>
