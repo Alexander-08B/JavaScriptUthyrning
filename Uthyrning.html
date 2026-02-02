@@ -13,7 +13,7 @@
         <input type ="text" id= "användarnamn" name= "användarnamn"><br>
         
         <label for = "lösenord">Ange ditt lösenord:</label>
-        <input type = "lösenord" id= "lösenord" name= "lösenord"><br>
+        <input type = "password" id= "lösenord" name= "lösenord"><br>
         
         <input type = "submit" value= "Logga in">
     </form>
@@ -29,7 +29,7 @@
             
             if(text == "ab" && lösenord == "lö"){
                 användarnamn = text;
-                window.location.href = `UthSidda.html?username=${encodeURIComponent(användarnamn)}`;
+                window.location.href = `UthSidda.html?användarnamn=${encodeURIComponent(användarnamn)}`;
             }
             else{
                 alert("Fel användarnamn eller lösenord!");
