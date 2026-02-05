@@ -2,15 +2,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>PlaceHolder</title>
 </head>
 
 <body>
-    <h1>Inloggnings sidda</h1><br>
+    <h1>Inloggnings sida</h1><br>
 
     <form id = "inloggForm">
         <label for = "användarnamn">Ange ditt användarnamn:</label>
-        <input type ="text" id= "användarnamn" name= "användarnamn"><br>
+        <input type ="text" id= "användarnamn" name= "användarnamn"><br><br>
         
         <label for = "lösenord">Ange ditt lösenord:</label>
         <input type = "password" id= "lösenord" name= "lösenord"><br>
@@ -27,7 +28,7 @@
             const text = document.getElementById('användarnamn').value;
             const lösenord = document.getElementById('lösenord').value;
             
-            if(text == "ab" && lösenord == "lö"){
+            if(text == "ab" && lösenord == "123"){
                 användarnamn = text;
                 window.location.href = `UthSidda.html?användarnamn=${encodeURIComponent(användarnamn)}`;
             }
