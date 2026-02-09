@@ -1,14 +1,11 @@
 *{
-    margin: 5px;
-    background-color:cornsilk;
-    color: rgb(92, 7, 7);
     font-family: cursive;
     font-weight: bolder;
 }
 
-h1{
+body h1{
     text-align: center;
-    
+
 }
 
 #inloggForm{
@@ -20,8 +17,18 @@ h1{
     max-height: 100px;
 }
 
-body{
+/*body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin: 5px;
+    background-color:cornsilk;
+    color: rgb(92, 7, 7)
+}
+*/
+
+h2{
+    display: flex;
+    
 }

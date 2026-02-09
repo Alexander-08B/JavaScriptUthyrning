@@ -7,16 +7,50 @@
 </head>
 
 <body>
+    <h2 id="välkommen"></h2> <br>
+    
+    <p id="output">Inaktiv</p>
+    <button id="scooter1">Scooter1</button>
 
-    <h2 id="välkommen"></h2>
+    <p id="output2">Tid</p>
+
+    
 
     <script>
+
+        let sc1 = false;
+        let timerId = 0;
+        let räknare = 0;
+
         const params = new URLSearchParams(window.location.search);
         const text = document.getElementById('välkommen');
         let användarnamn = params.get('användarnamn');
         text.textContent = `Välkommen ${användarnamn}!`;
         
-        
+        const text2 = document.getElementById('output');
+        const scooter1 = document.getElementById('scooter1');
+
+        const text3 = document.getElementById('output2');
+
+        scooter1.addEventListener('click', function (event){
+            if (sc1 == false) {
+                sc1 = true;
+                text2.textContent = "Uthyrning är pågående";
+            }
+
+            timerId = setInterval (function() {
+                if (sc1 == true) {
+                    räknare ++;
+                    text3.textContent += räknare;
+                }
+
+                else if (auc == false) {
+                    text3.textContent = "Tid";
+                }
+            }, 1000)
+
+        })
+
     </script>
 
 </body>
