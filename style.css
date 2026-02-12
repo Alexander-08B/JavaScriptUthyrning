@@ -17,18 +17,8 @@ body h1{
     max-height: 100px;
 }
 
-/*body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+body {
     margin: 5px;
     background-color:cornsilk;
     color: rgb(92, 7, 7)
-}
-*/
-
-h2{
-    display: flex;
-    
 }

@@ -10,9 +10,12 @@
     <h2 id="välkommen"></h2> <br>
     
     <p id="output">Inaktiv</p>
+
+    <img src="h:\Webbutveckling\Bilder\Elscooter.png" alt=""><br>
     <button id="scooter1">Scooter1</button>
 
-    <p id="output2">Tid</p>
+    <p id="output2">Tid(s):</p>
+    <p id="output3"></p>
 
     
 
@@ -21,6 +24,7 @@
         let sc1 = false;
         let timerId = 0;
         let räknare = 0;
+        let tid = new Date();
 
         const params = new URLSearchParams(window.location.search);
         const text = document.getElementById('välkommen');
@@ -31,24 +35,34 @@
         const scooter1 = document.getElementById('scooter1');
 
         const text3 = document.getElementById('output2');
+        const text4 = document.getElementById('output3');
 
         scooter1.addEventListener('click', function (event){
             if (sc1 == false) {
                 sc1 = true;
-                text2.textContent = "Uthyrning är pågående";
-            }
+                text2.textContent = "Uthyrning är pågående!";
+                text4.textContent = "";
+            
 
             timerId = setInterval (function() {
                 if (sc1 == true) {
                     räknare ++;
-                    text3.textContent += räknare;
+                    text3.textContent = "Tid(s):"+ räknare;
                 }
 
-                else if (auc == false) {
-                    text3.textContent = "Tid";
+                else if (sc1 == false) {
+                    text3.textContent = "Tid(s):";
                 }
             }, 1000)
-
+            }
+            else{
+                clearInterval(timerId);
+                text2.textContent = "Inaktiv";
+                text3.textContent = "Tid(s):";
+                text4.textContent = "Senaste uthyrning skedde  " + tid + ", och varade i " + räknare + " sekunder.";
+                räknare = 0;
+                sc1 = false;
+            }
         })
 
     </script>
