@@ -8,10 +8,10 @@
 </head>
 
 <body>
-    <h1>Inloggnings sida</h1><br>
+    <h1>Inloggnings sida</h1><br><!--Titel-->
 
-    <div>
-    <form id = "inloggForm">
+    <div><!--Detta stycke är indelat i en div för att underlätta styling mha css.-->
+    <form id = "inloggForm"><!--Stycket innehåller kod för att skapa inloggnings pannelen.-->
         <label for = "användarnamn">Ange ditt användarnamn:</label>
         <input type ="text" id= "användarnamn" name= "användarnamn"><br><br>
         
@@ -22,7 +22,8 @@
     </form>
     </div>
     
-    <script>
+    <script>//Nedanstående kod möjliggör inläsning av användarnamn och löseneord samt skapar en knapp för bekräfta de inmatade uppgifterna, 
+    //vilket antigen resulterar i att man loggas in, eller får ett meddelande som berättar att uppgifterna är felaktiga.  
         let användarnamn = null;
         const form = document.getElementById('inloggForm');
 
@@ -31,12 +32,12 @@
             const text = document.getElementById('användarnamn').value;
             const lösenord = document.getElementById('lösenord').value;
             
-            if(text == "ab" && lösenord == "123"){
+            if(text == "ab" && lösenord == "123"){//Denna if-sats vidarskickar användaren till nästa webbsida om lösenord och användarnamn är korrekta.
                 användarnamn = text;
                 window.location.href = `UthSidda.html?användarnamn=${encodeURIComponent(användarnamn)}`;
             }
             else{
-                alert("Fel användarnamn eller lösenord!");
+                alert("Fel användarnamn eller lösenord!");//Skickar meddelandet angående felaktiga uppgifter vid fel inmatning.
             }
         });
     </script>

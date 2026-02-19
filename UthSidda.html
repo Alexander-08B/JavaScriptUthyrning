@@ -7,60 +7,60 @@
 </head>
 
 <body>
-    <h2 id="välkommen"></h2> <br>
+    <h2 id="välkommen"></h2> <br><!--Inloggnings meddelande.-->
     
-    <p id="output">Inaktiv</p>
+    <p id="output">Inaktiv</p><!--Textfält för att informera användare ifall uthyrning pågår eller inte-->
 
-    <img src="h:\Webbutveckling\Bilder\Elscooter.png" alt=""><br>
-    <button id="scooter1">Scooter1</button>
-    <p id="pris">Pris: 10kr/min</p>
+    <img src="h:\Webbutveckling\Bilder\Elscooter.png" alt=""><br><!--Infogar en bild.-->
+    <button id="scooter1">Scooter1</button><!--Knapp för att hyra en scooter.-->
+    <p id="pris">Pris: 10kr/min</p><!--Skapar ett textfält för priset.-->
 
-    <p id="output2">Tid(s):</p>
-    <p id="output3"></p>
+    <p id="output2">Tid(s):</p><!--Skapar ett textfält för Tiden i sekunder.-->
+    <p id="output3"></p><!--Textfält för utskrivning av uthyrnings information-->
 
     
 
     <script>
 
-        let sc1 = false;
+        let sc1 = false;//Variabler och dess start värden.
         let timerId = 0;
         let Sräknare = 0;
         //let Mräknare = 0;
         let datum = new Date();
 
-        const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams(window.location.search);//Lägger till användarnamn i inloggningsmeddelandet.
         const text = document.getElementById('välkommen');
         let användarnamn = params.get('användarnamn');
         text.textContent = `Välkommen ${användarnamn}!`;
         
-        const text2 = document.getElementById('output');
+        const text2 = document.getElementById('output');//Referenser till de olika elementen(Textfält och en knapp).
         const scooter1 = document.getElementById('scooter1');
         const text5 = document.getElementById('pris');
 
         const text3 = document.getElementById('output2');
         const text4 = document.getElementById('output3');
 
-        scooter1.addEventListener('click', function (event){
+        scooter1.addEventListener('click', function (event){//Om knappen för uthyrning aktiverats, kommer knappen ändra färg och texten "Inaktiv" byts till "Uthyrning är pågående".
             if (sc1 == false) {
                 sc1 = true;
                 text2.textContent = "Uthyrning är pågående!";
                 text4.textContent = "";
                 document.getElementById("scooter1").style.backgroundColor = "rgb(92, 7 ,7)";
 
-            timerId = setInterval (function() {
+            timerId = setInterval (function() {//Påbörjar räkning och uppvisning av uthyrningstid.
                 if (sc1 == true) {
                     Sräknare ++;
                     text3.textContent = "Tid(s):"+ Sräknare;
                 }
 
-                else if (sc1 == false) {
+                else if (sc1 == false) {//Nollställer det synliga Tidtagaruret(textfältet för tid) samt återställer knappens färg.
                     text3.textContent = "Tid(s):";
                     document.getElementById("scooter1").style.backgroundColor = "rgb(9, 78 ,9)";
                 }
             }, 1000)
             }
 
-            else{
+            else{//Återställer allt till sitt ursprungliga skick samt printar ut datum, längd och kostnad av senaste uthyrning.
                 clearInterval(timerId);
                 text2.textContent = "Inaktiv";
                 text3.textContent = "Tid(s):";
